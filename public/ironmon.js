@@ -64,35 +64,19 @@ Ironmon.prototype.active = function() {
 */
 Ironmon.prototype.attack = function(opponent) {
  var damage =  Math.ceil(Math.random()* this.power)
+ var dbl = damage * 2
   
-  switch(this.type){
-    case "water":
-    if(opponent.type === "fire"){
-      opponent.health -= damage * 2;
-      return damage * 2;
-    }
+
+
+
+  if (this.type === "water" && opponent.type === "fire"||
+    this.type === "fire" && opponent.type === "grass"||
+    this.type === "grass" && opponent.type === "water") {
+    opponent.health -= dbl;
+      return dbl;
+  }else
     opponent.health -= damage;
     return damage;
 
-    case "fire":
-    if(opponent.type === "grass"){
-      opponent.health -= damage * 2;
-      return damage *2;
-    }
-      opponent.health -= damage;
-      return damage;
     
-    case "grass":
-    if(opponent.type === "water"){
-      opponent.health -= damage * 2;
-      return damage * 2;
-    }
-    opponent.health -= damage
-    return damage
-
-    default :
-    opponent.health -= damage;
-    return damage;
-}
-  
 }

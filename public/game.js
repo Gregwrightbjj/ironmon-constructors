@@ -11,8 +11,8 @@
   You'll need to create Ironmon instances in this constructor.
 */
 var Game = function(leftName, rightName) {
-	this.left = new Ironmon ("foo");
-	this.right = new Ironmon ("bar");
+	this.left = new Ironmon (leftName);
+	this.right = new Ironmon (rightName);
 	this.turn = true
 }
 
